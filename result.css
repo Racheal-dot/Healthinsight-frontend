@@ -1,0 +1,254 @@
+/* Default reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* Nav Styles */
+nav {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 5px 5px 5px#dddbdb;
+    position: relative;
+}
+
+.navLink ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navLink a {
+    text-decoration: none;
+    color: #0f03ee;
+}
+
+.navLink li {
+
+    position: relative;
+    display: inline-block;
+}
+
+.navLink a::after {
+    position: absolute;
+    content: " ";
+    height: 3px;
+    width: 0;
+    background-color: #2ECC71;
+    z-index: 1;
+    border-radius: 2px;
+    transition: width 0.25s ease-in-out;
+    bottom: -6px;
+    left: 0;
+}
+
+.navLink a:hover::after {
+    width: 100%;
+}
+
+.active::after {
+    position: absolute;
+    content: " ";
+    height: 3px;
+    width: 100%;
+    background-color: #2ECC71;
+    border-radius: 2px;
+    bottom: -6px;
+    left: 0;
+}
+
+
+.navLogo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 24px;
+    margin-right: 8px;
+    color: #2ecc71;
+}
+
+.health {
+    color: #0f03ee;
+}
+
+.insight {
+    color: #2ecc71;
+}
+
+
+/* RESULT STYLES */
+
+/* MAIN CONTAINER */
+.container{
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
+    padding:0 15px;
+}
+
+/* PAGE TITLE */
+.page-title{
+    text-align:center;
+    color:#1E88E5;
+    margin:40px;
+    font-size:38px;
+    font-weight:700;
+}
+
+/* SECTION TITLES */
+.section-title{
+    margin:40px 0 20px;
+    color:#222;
+    font-size:28px;
+}
+
+/* RESULT CARDS */
+.result-card{
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+    transition:0.3s ease;
+}
+
+.result-card:hover{
+    transform:translateY(-3px);
+}
+
+.result-card h3{
+    color:#1E88E5;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.result-card p{
+    margin-bottom:14px;
+    line-height:1.7;
+    font-size:17px;
+}
+
+/* QUESTION BOX */
+.question-box{
+    background:#fff8e1;
+    border-left:6px solid #ffc107;
+    padding:25px;
+    border-radius:14px;
+    margin-top:30px;
+}
+
+/* BUTTON */
+button{
+    margin-top:20px;
+    padding:14px 24px;
+    border:none;
+    border-radius:10px;
+    background:#1E88E5;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1565c0;
+}
+
+/* LABELS */
+label{
+    display:block;
+    margin-bottom:14px;
+    font-size:16px;
+}
+
+/* RISK COLORS */
+.high-risk{
+    color:#d32f2f;
+    font-weight:bold;
+}
+
+.medium-risk{
+    color:#f57c00;
+    font-weight:bold;
+}
+
+.low-risk{
+    color:#2e7d32;
+    font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .page-title{
+        font-size:30px;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+
+    .result-card{
+        padding:22px;
+    }
+}
+/* FOOTER */
+footer {
+    margin: 50px 0 0;
+    background-color: #2A7BE4;
+    text-align: center;
+    color: #fff;
+    padding: 100px 50px;
+}
+
+/* Responsiveness */
+@media (max-width:768px) {
+    .navLink {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .navLink.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}

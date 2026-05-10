@@ -1,0 +1,197 @@
+/* Default reset */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    background: #F5F7FA;
+    color: #333;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* Nav Styles */
+nav {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-shadow: 5px 5px 5px#dddbdb;
+    position: relative;
+}
+
+.navLink ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.navLink a {
+    text-decoration: none;
+    color: #0f03ee;
+}
+
+.navLink li {
+    position: relative;
+    display: inline-block;
+    transition: color 0.25s ease;
+}
+
+.navLink a:hover {
+    color: #101013;
+}
+
+.active {
+    color: #101011;
+}
+
+
+.navLogo {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logo-icon {
+    font-size: 24px;
+    margin-right: 8px;
+    color: #2ecc71;
+}
+
+.health {
+    color: #0f03ee;
+}
+
+.insight {
+    color: #2ecc71;
+}
+
+/* PAGE HEADER */
+
+.page-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+}
+
+.page-header h1 {
+    color: #1E88E5;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 800px;
+    min-width: 300px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.form-group {
+    margin: 0 0 40px 0;
+}
+
+label {
+    display: block;
+    margin: 0 0 6px 0;
+    font-weight: 500;
+}
+
+input,
+select {
+    background-color: #F5F7FA;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+input,
+select:focus {
+    outline: none;
+
+}
+
+.symptoms {
+    background-color: #F5F7FA;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 0 0 10px 0;
+}
+
+.symptoms input{
+    width: auto;
+}
+
+/* BUTTON */
+button {
+    margin: 25px 0 0;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #2ECC71;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.35s ease;
+}
+
+button:hover {
+    background-color: #0fed6b;
+}
+
+/* FOOTER */
+footer {
+    margin: 50px 0 0;
+    background-color: #2A7BE4;
+    text-align: center;
+    color: #fff;
+    padding: 100px 50px;
+}
+
+/* Responsiveness */
+@media (max-width:768px) {
+    .navLink {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .navLink.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}

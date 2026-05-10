@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- External styling -->
+    <link rel="stylesheet" href="./check.css">
+    <!-- Title -->
+    <title>Health Check | HealthInsight</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/Asset/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <!-- nav -->
+        <nav>
+            <!-- navLogo -->
+            <div class="navLogo" id="navLogo">
+                <span class="logo-icon"><i class="fa-solid fa-heart-pulse logo-icon"></i></span>
+                <span class="logo-text">
+                    <span class="health">Health</span><span class="insight">Insight</span>
+                </span>
+            </div>
+
+            <!-- HAMBURGER -->
+
+            <div class="menu-toggle" id="menuToggle">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <!-- NavLinks -->
+            <div class="navLink" id="navLink">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li class="active"><a href="check.html">Health Check</a></li>
+                    <li><a href="result.html">Health Info</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <h1>Health Assessment</h1>
+        <p>Enter your health information and symptoms to receive possible health insights.</p>
+    </section>
+
+    <!-- FORM -->
+    <div class="form-container">
+        <form id="healthForm">
+
+            <!-- AGE -->
+
+            <div class="form-group">
+
+                <label>Age</label>
+
+                <input type="number" id="age" required>
+
+            </div>
+
+            <!-- GENDER -->
+
+            <div class="form-group">
+
+                <label>Gender</label>
+
+                <select id="gender">
+
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+
+                </select>
+
+            </div>
+
+            <!-- HEIGHT -->
+
+            <div class="form-group">
+
+                <label>Height (cm)</label>
+
+                <input type="number" id="height">
+
+            </div>
+
+            <!-- WEIGHT -->
+
+            <div class="form-group">
+
+                <label>Weight (kg)</label>
+
+                <input type="number" id="weight">
+
+            </div>
+
+            <!-- BLOOD PRESSURE -->
+
+            <div class="form-group">
+
+                <label>Blood Pressure</label>
+
+                <input type="text" id="bp" placeholder="e.g 120/80">
+
+            </div>
+
+            <!-- SYMPTOMS -->
+            <label for="">Select Symptoms</label>
+            <div class="symptoms">
+                <div> <label><input type="checkbox" name="symptoms" value="s_21"> Headache</label></div>
+                <div><label><input type="checkbox" name="symptoms" value="s_98"> Fever</label></div>
+                <div><label><input type="checkbox" name="symptoms" value="s_13"> Cough</label></div>
+                <div> <label><input type="checkbox" name="symptoms" value="s_119"> Chest pain</label></div>
+                <div> <label><input type="checkbox" name="symptoms" value="s_44"> Dizziness</label></div>
+                <div> <label><input type="checkbox" name="symptoms" value="s_8"> Nausea</label></div>
+                <div><label><input type="checkbox" name="symptoms" value="s_32"> Shortness of breath</label></div>
+                <div><label><input type="checkbox" name="symptoms" value="s_10"> Abdominal pain</label></div>
+                <div><label><input type="checkbox" name="symptoms" value="s_140"> Fatigue</label></div>
+            </div>
+            <button type="submit">Analyze Health</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>HealthInsight – A Web-Based Health Risk Assessment Platform</p>
+        <p>Final Year Project – Computer Science</p>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="script.js"></script>
+    <script src="api.js"></script>
+    <script src="form.js"></script>
+</body>
+
+</html>
