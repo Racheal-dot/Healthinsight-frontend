@@ -108,7 +108,7 @@ nav a.current {
 .hero {
     padding: 100px 50px;
     text-align: center;
-    background:linear-gradient(to right,#2A7FFF,#28C76F);
+    background: linear-gradient(to right, #2A7FFF, #28C76F);
     color: #fff;
 }
 
@@ -149,7 +149,7 @@ nav a.current {
 
 .about {
     max-width: 700px;
-    margin:0 auto;
+    margin: 0 auto;
     font-size: 18px;
 }
 
@@ -159,8 +159,8 @@ nav a.current {
     text-align: center;
 }
 
-.section-light{
-background-color:#F5F7FA;
+.section-light {
+    background-color: #F5F7FA;
 }
 
 .section h2 {
@@ -231,6 +231,7 @@ background-color:#F5F7FA;
 .CTA button:hover {
     background-color: #0bda61;
 }
+
 /* FOOTER */
 footer {
     /* margin: 50px 0; */
@@ -242,59 +243,97 @@ footer {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-  .navLink {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    display: none;
-    padding: 20px 0;
-    z-index: 1000;
-  }
+    .navLink {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        padding: 20px 0;
+        z-index: 1000;
+    }
 
-  /* Show menu when active class is added by script.js */
-  .navLink.active {
-    display: block;
-  }
+    /* Show menu when active class is added by script.js */
+    .navLink.active {
+        display: block;
+    }
 
-  /* Make links vertical */
-  .navLink ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+    /* Make links vertical */
+    .navLink ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-  .navLink ul li {
-    width: 100%;
-    text-align: center;
-  }
+    .navLink ul li {
+        width: 100%;
+        text-align: center;
+    }
 
-  .navLink ul li a {
-    display: block;
-    padding: 12px 20px;
-    font-size: 1rem;
-    color: #1f2937;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.3s ease;
-  }
+    .navLink ul li a {
+        display: block;
+        padding: 12px 20px;
+        font-size: 1rem;
+        color: #1f2937;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.3s ease;
+    }
 
-  .navLink ul li a:hover,
-  .navLink ul li.active a {
-    background: #f3f4f6;
-    color: #0ea5e9;
-  }
+    .navLink ul li a:hover,
+    .navLink ul li.active a {
+        background: #f3f4f6;
+        color: #0ea5e9;
+    }
 
-  /* Show hamburger icon */
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 2rem;
-  }
+    /* Base styles for your hamburger button container */
+    #menuToggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    /* Style for the 3 individual lines inside the hamburger */
+    #menuToggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        /* Change to your preferred icon color */
+        transition: all 0.3s ease-in-out;
+        /* Smooth transition animation */
+        transform-origin: left center;
+        /* Ensures smooth rotation angles */
+    }
+
+    /* --- THE "X" TRANSFORM MAGIC --- */
+
+    /* 1. Rotate the top line down */
+    #menuToggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: -1px;
+    }
+
+    /* 2. Fade out the middle line */
+    #menuToggle.active span:nth-child(2) {
+        opacity: 0;
+        width: 0;
+    }
+
+    /* 3. Rotate the bottom line up */
+    #menuToggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: 1px;
+    }
 }

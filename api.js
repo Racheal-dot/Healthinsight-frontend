@@ -1,4 +1,4 @@
-const API_URL = "https://healthinsight.page.gd/health-api.php";
+const API_URL = "/api/health-api.php";
 
 async function getDiagnosis(data) {
     const response = await fetch(API_URL, {
@@ -12,7 +12,11 @@ async function getDiagnosis(data) {
     const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(result.error || "Failed to fetch diagnosis");
+        throw new Error(
+            result.error ||
+            result.message ||
+            "Failed to fetch diagnosis"
+        );
     }
 
     return result;

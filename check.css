@@ -176,9 +176,9 @@ select:focus {
 }
 
 .symptom-text {
-            font-size: 16px;
-            color: #0f172a;
-        }
+    font-size: 16px;
+    color: #0f172a;
+}
 
 /* BUTTON */
 button {
@@ -258,10 +258,48 @@ footer {
         color: #0ea5e9;
     }
 
-    /* Show hamburger icon */
-    .menu-toggle {
-        display: block;
+    /* Base styles for your hamburger button container */
+    #menuToggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
         cursor: pointer;
-        font-size: 2rem;
+    }
+
+    /* Style for the 3 individual lines inside the hamburger */
+    #menuToggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        /* Change to your preferred icon color */
+        transition: all 0.3s ease-in-out;
+        /* Smooth transition animation */
+        transform-origin: left center;
+        /* Ensures smooth rotation angles */
+    }
+
+    /* --- THE "X" TRANSFORM MAGIC --- */
+
+    /* 1. Rotate the top line down */
+    #menuToggle.active span:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: -1px;
+    }
+
+    /* 2. Fade out the middle line */
+    #menuToggle.active span:nth-child(2) {
+        opacity: 0;
+        width: 0;
+    }
+
+    /* 3. Rotate the bottom line up */
+    #menuToggle.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: 1px;
     }
 }
