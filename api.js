@@ -1,12 +1,19 @@
-async function getDiagnosis(data){
+const API_URL = "https://healthinsight.page.gd/health-api.php";
 
-  const response = await fetch("http://healthinsight.local/wp-json/health/v1/diagnosis", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  });
+async function getDiagnosis(data) {
+    const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    });
 
-  return await response.json();
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new Error(result.error || "Failed to fetch diagnosis");
+    }
+
+    return result;
 }
