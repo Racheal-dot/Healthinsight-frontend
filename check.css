@@ -160,9 +160,25 @@ select:focus {
     margin: 0 0 10px 0;
 }
 
-.symptoms input{
-    width: auto;
+.check-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
 }
+
+.check-container input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.symptom-text {
+            font-size: 16px;
+            color: #0f172a;
+        }
 
 /* BUTTON */
 button {
@@ -193,59 +209,59 @@ footer {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
-  .navLink {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    background: #ffffff;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    display: none;
-    padding: 20px 0;
-    z-index: 1000;
-  }
+    .navLink {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        padding: 20px 0;
+        z-index: 1000;
+    }
 
-  /* Show menu when active class is added by script.js */
-  .navLink.active {
-    display: block;
-  }
+    /* Show menu when active class is added by script.js */
+    .navLink.active {
+        display: block;
+    }
 
-  /* Make links vertical */
-  .navLink ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+    /* Make links vertical */
+    .navLink ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
-  .navLink ul li {
-    width: 100%;
-    text-align: center;
-  }
+    .navLink ul li {
+        width: 100%;
+        text-align: center;
+    }
 
-  .navLink ul li a {
-    display: block;
-    padding: 12px 20px;
-    font-size: 1rem;
-    color: #1f2937;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.3s ease;
-  }
+    .navLink ul li a {
+        display: block;
+        padding: 12px 20px;
+        font-size: 1rem;
+        color: #1f2937;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.3s ease;
+    }
 
-  .navLink ul li a:hover,
-  .navLink ul li.active a {
-    background: #f3f4f6;
-    color: #0ea5e9;
-  }
+    .navLink ul li a:hover,
+    .navLink ul li.active a {
+        background: #f3f4f6;
+        color: #0ea5e9;
+    }
 
-  /* Show hamburger icon */
-  .menu-toggle {
-    display: block;
-    cursor: pointer;
-    font-size: 2rem;
-  }
+    /* Show hamburger icon */
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+    }
 }
