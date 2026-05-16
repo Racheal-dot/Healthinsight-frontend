@@ -9,15 +9,22 @@ async function getDiagnosis(data) {
         body: JSON.stringify(data)
     });
 
-    const result = await response.json();
+    const text = await response.text();
 
-    if (!response.ok) {
-        throw new Error(
-            result.error ||
-            result.message ||
-            "Failed to fetch diagnosis"
-        );
+    try {
+        const result = JSON.parse(text);
+
+        if (!response.ok) {
+            throw new Error(
+                result.error ||
+                result.message ||
+                "Failed to fetch diagnosis"
+            );
+        }
+
+        return result;
+    } catch (error) {
+        console.error("Server returned:", text);
+        throw new Error("Server returned invalid JSON.");
     }
-
-    return result;
 }
