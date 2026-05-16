@@ -50,18 +50,12 @@ nav {
     color: #0f03ee;
 }
 
-.navLink li {
-    position: relative;
-    display: inline-block;
-    transition: color 0.25s ease;
+.navLink a:hover{
+color: #0bda61;
 }
 
-.navLink a:hover {
-    color: #101013;
-}
-
-.active {
-    color: #101011;
+.navLink a:active{
+color: #000000;
 }
 
 

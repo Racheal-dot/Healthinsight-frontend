@@ -33,7 +33,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 20px 40px;
-    box-shadow: 5px 5px 5px#dddbdb;
+    box-shadow: 5px 5px 5px #dbdbdb;
     position: relative;
 }
 
@@ -48,42 +48,12 @@ nav {
     color: #0f03ee;
 }
 
-.navLink li {
-
-    position: relative;
-    display: inline-block;
-}
-
-.navLink a::after {
-    position: absolute;
-    content: " ";
-    height: 3px;
-    width: 0;
-    background-color: #2ECC71;
-    z-index: 1;
-    border-radius: 2px;
-    transition: width 0.25s ease-in-out;
-    bottom: -6px;
-    left: 0;
-}
-
-.navLink a:hover::after {
-    width: 100%;
-}
-
-.active::after {
-    position: absolute;
-    content: " ";
-    height: 3px;
-    width: 100%;
-    background-color: #2ECC71;
-    border-radius: 2px;
-    bottom: -6px;
-    left: 0;
+.navLink a:hover{
+color: #0bda61;
 }
 
 .navLink a:active{
-    background-color: #0bda61;
+color: #000000;
 }
 
 .navLogo {
