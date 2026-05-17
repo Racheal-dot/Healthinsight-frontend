@@ -27,15 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
         bmi = (w / (h * h)).toFixed(1);
       }
 
-      const symptoms = [];
+      // Symptoms (FIXED)
+      let symptoms = [];
 
       document
         .querySelectorAll("input[name='symptoms']:checked")
-        .forEach((el) => {
-          if (/^s_\\d+$/.test(el.value)) {
-            symptoms.push(el.value);
+        .forEach(el => {
+          if (el.value && el.value.startsWith("s_")) {
+            symptoms.push(el.value.trim());
           }
         });
+
+      console.log("Selected symptoms:", symptoms);
 
       if (symptoms.length === 0) {
         alert("Select at least one symptom.");
