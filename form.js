@@ -31,7 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Symptoms
       let symptoms = [];
-      document.querySelectorAll("input[type='checkbox']:checked")
+
+      document.querySelectorAll("input[name='symptoms']:checked")
         .forEach(el => symptoms.push(el.value));
 
       if (symptoms.length === 0) {
