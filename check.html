@@ -46,6 +46,7 @@
             <div class="navLink" id="navLink">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li class="current"><a href="check.html">Health Check</a></li>
                     <li><a href="result.html">Health Info</a></li>
                 </ul>
@@ -70,7 +71,7 @@
 
                 <label>Age</label>
 
-                <input type="number" id="age" required>
+                <input type="number" id="age" required min="1" max="120">
 
             </div>
 
@@ -95,7 +96,7 @@
 
                 <label>Height (cm)</label>
 
-                <input type="number" id="height">
+                <input type="number" id="height" min="100" max="250">
 
             </div>
 
@@ -105,7 +106,7 @@
 
                 <label>Weight (kg)</label>
 
-                <input type="number" id="weight">
+                <input type="number" id="weight" min="30" max="350">
 
             </div>
 
@@ -178,6 +179,17 @@
                 </div>
 
             </div>
+
+            <!-- DISCLAIMER CHECKBOX -->
+            <div class="disclaimer">
+                <label>
+                    <input type="checkbox" id="agreeDisclaimer">
+                    <span>
+                        I understand this tool is not medical advice and does not provide a diagnosis.
+                    </span>
+                </label>
+            </div>
+
             <button type="submit">Analyze Health</button>
         </form>
     </div>

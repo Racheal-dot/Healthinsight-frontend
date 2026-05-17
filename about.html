@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title -->
-    <title>Health Info | HealthInsight</title>
+    <title>About | HealthInsight</title>
     <!-- External styling -->
-    <link rel="stylesheet" href="./result.css">
+    <link rel="stylesheet" href="./about.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/Asset/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./Asset/favicon.ico" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Google fonts -->
@@ -43,34 +43,44 @@
             <!-- NavLinks -->
             <div class="navLink" id="navLink">
                 <ul>
-                    <li><a href="/index.html">Home</a></li>
-                     <li><a href="about.html">About</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li class="current"><a href="./about.html">About</a></li>
                     <li><a href="check.html">Health Check</a></li>
-                    <li class="current"><a href="result.html">Health Info</a></li>
+                    <li><a href="result.html">Health Info</a></li>
                 </ul>
             </div>
 
         </nav>
     </header>
 
-
-    <section class="results-section">
-        <div class="container">
-
-            <h1 class="page-title">Your Health Analysis</h1>
-            <div id="output"></div>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <h2>About HealthInsight</h2>
+            <p>
+                HealthInsight is a web-based health risk assessment platform designed to
+                help users evaluate their health status by entering personal information
+                and selecting symptoms.
+            </p>
+            <p>
+                The system calculates Body Mass Index (BMI), analyzes symptoms, and
+                provides possible health conditions along with probability and risk
+                levels.
+            </p>
+            <p>
+                This project was developed as a final year Computer Science project to
+                demonstrate the use of frontend web technologies in solving healthcare
+                challenges.
+            </p>
         </div>
     </section>
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
         <p>HealthInsight – A Web-Based Health Risk Assessment Platform</p>
         <p>Final Year Project – Computer Science</p>
     </footer>
-
     <!-- SCRIPT -->
-    <script src="api.js"></script>
-    <script src="script.js"></script>
-    <script src="result.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>

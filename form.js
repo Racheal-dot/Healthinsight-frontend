@@ -1,75 +1,83 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-const form = document.getElementById("healthForm");
+  const form = document.getElementById("healthForm");
 
-form.addEventListener("submit", async function(e){
+  form.addEventListener("submit", async function (e) {
 
-e.preventDefault();
+    e.preventDefault();
 
-try {
+     // Check disclaimer checkbox first
+    const agreed = document.getElementById("agreeDisclaimer").checked;
 
-const age = document.getElementById("age").value;
-const gender = document.getElementById("gender").value.toLowerCase();
-const height = document.getElementById("height").value;
-const weight = document.getElementById("weight").value;
+    if (!agreed) {
+      alert("You must agree to the medical disclaimer before continuing.");
+      return; // Stop form submission
+    }
 
-// BMI
-let bmi = null;
-if(height && weight){
-  const h = parseFloat(height) / 100;
-  const w = parseFloat(weight);
-  bmi = (w / (h*h)).toFixed(1);
-}
+    try {
 
-// Symptoms
-let symptoms = [];
-document.querySelectorAll("input[type='checkbox']:checked")
-.forEach(el => symptoms.push(el.value));
+      const age = document.getElementById("age").value;
+      const gender = document.getElementById("gender").value.toLowerCase();
+      const height = document.getElementById("height").value;
+      const weight = document.getElementById("weight").value;
 
-if(symptoms.length === 0){
-  alert("Select at least one symptom");
-  return;
-}
+      // BMI
+      let bmi = null;
+      if (height && weight) {
+        const h = parseFloat(height) / 100;
+        const w = parseFloat(weight);
+        bmi = (w / (h * h)).toFixed(1);
+      }
 
-const button = document.querySelector("button");
+      // Symptoms
+      let symptoms = [];
+      document.querySelectorAll("input[type='checkbox']:checked")
+        .forEach(el => symptoms.push(el.value));
 
-button.disabled = true;
-button.innerHTML = "Analyzing Health...";
+      if (symptoms.length === 0) {
+        alert("Select at least one symptom");
+        return;
+      }
 
-// CALL API
-const result = await getDiagnosis({
-  sex: gender,
-  age: { value: parseInt(age) },
-  evidence: symptoms.map(s => ({
-    id: s,
-    choice_id: "present"
-  }))
-});
+      const button = document.querySelector("button");
 
-// SAVE SESSION
-localStorage.setItem("session", JSON.stringify({
-  interview_token: result.interview_token,
-  evidence: symptoms.map(s => ({
-    id: s,
-    choice_id: "present"
-  })),
-  result: result,
-  age: age,
-  gender: gender,
-  bmi: bmi
-}));
+      button.disabled = true;
+      button.innerHTML = "Analyzing Health...";
 
-button.disabled = false;
-button.innerHTML = "Analyze";
+      // CALL API
+      const result = await getDiagnosis({
+        sex: gender,
+        age: { value: parseInt(age) },
+        evidence: symptoms.map(s => ({
+          id: s,
+          choice_id: "present"
+        }))
+      });
 
-// GO TO RESULT PAGE
-window.location.href = "result.html";
+      // SAVE SESSION
+      localStorage.setItem("session", JSON.stringify({
+        interview_token: result.interview_token,
+        evidence: symptoms.map(s => ({
+          id: s,
+          choice_id: "present"
+        })),
+        result: result,
+        age: age,
+        gender: gender,
+        bmi: bmi
+      }));
 
-} catch (err) {
-  console.error(err);
-  alert("Error occurred. Check console.");
-}
+      button.disabled = false;
+      button.innerHTML = "Analyze";
 
-});
+      // GO TO RESULT PAGE
+      window.location.href = "result.html";
+
+    } catch (err) {
+      console.error(err);
+      alert("Error occurred. Check console.");
+    }
+
+  });
 
 });
