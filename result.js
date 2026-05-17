@@ -39,21 +39,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     html += `<h2 class="section-title">Possible Conditions</h2>`;
 
-   apiData.conditions.forEach(condition => {
+    apiData.conditions.forEach(condition => {
 
-    let risk = "Low Risk";
-    let riskClass = "low-risk";
+      let risk = "Low Risk";
+      let riskClass = "low-risk";
 
-    if(condition.probability >= 0.7){
+      if (condition.probability >= 0.7) {
         risk = "High Risk";
         riskClass = "high-risk";
-    }
-    else if(condition.probability >= 0.4){
+      }
+      else if (condition.probability >= 0.4) {
         risk = "Medium Risk";
         riskClass = "medium-risk";
-    }
+      }
 
-    html += `
+      html += `
     <div class="result-card">
 
         <h3>${condition.name}</h3>
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </div>
     `;
-});
+    });
 
   } else {
 
@@ -102,6 +102,23 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
   }
   html += `</div>`;
+
+  // just added
+  html += `
+<div class="disclaimer-box">
+    <h2 class="section-title">Medical Disclaimer</h2>
+    <p>
+        This health assessment is provided for informational and educational
+        purposes only. It is not a medical diagnosis and should not replace
+        professional medical advice, diagnosis, or treatment.
+    </p>
+    <p>
+        Always consult a qualified healthcare professional regarding any health
+        concerns. If you are experiencing a medical emergency, seek immediate
+        medical attention.
+    </p>
+</div>
+`;
 
   container.innerHTML = html;
 

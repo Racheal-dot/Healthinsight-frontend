@@ -200,6 +200,20 @@ label {
   font-weight: bold;
 }
 
+/* disclaimer */
+.disclaimer-box {
+  background: #fff3f3;
+  border-left: 6px solid #e53935;
+  padding: 25px;
+  border-radius: 14px;
+  margin-top: 40px;
+}
+
+.disclaimer-box p {
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .page-title {
