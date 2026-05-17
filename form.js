@@ -33,13 +33,18 @@ document.addEventListener("DOMContentLoaded", function () {
       let symptoms = [];
 
       document.querySelectorAll("input[name='symptoms']:checked")
-        .forEach(el => symptoms.push(el.value));
+        .forEach(el => {
+          if (/^s_\d+$/.test(el.value)) {
+            symptoms.push(el.value);
+          }
+        });
+
+      console.log("Symptoms:", symptoms);
 
       if (symptoms.length === 0) {
         alert("Select at least one symptom");
         return;
       }
-
       const button = document.querySelector("button");
 
       button.disabled = true;
