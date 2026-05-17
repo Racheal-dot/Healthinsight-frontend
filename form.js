@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     e.preventDefault();
 
-     // Check disclaimer checkbox first
+    //  // Check disclaimer checkbox first
     const agreed = document.getElementById("agreeDisclaimer").checked;
 
     if (!agreed) {
@@ -44,14 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
       button.disabled = true;
       button.innerHTML = "Analyzing Health...";
 
-      // CALL API
       const result = await getDiagnosis({
         sex: gender,
         age: { value: parseInt(age) },
         evidence: symptoms.map(s => ({
           id: s,
           choice_id: "present"
-        }))
+        })),
+
+        // ✅ correct
+        agreeDisclaimer: true
       });
 
       // SAVE SESSION
