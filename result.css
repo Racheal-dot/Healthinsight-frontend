@@ -200,6 +200,45 @@ label {
   font-weight: bold;
 }
 
+
+/* bmi */
+
+.bmi-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bmi-underweight {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.bmi-normal {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.bmi-overweight {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.bmi-obese {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.advice-box {
+  background: #ecfdf5;
+  border-left: 6px solid #10b981;
+  padding: 25px;
+  border-radius: 14px;
+  margin-top: 40px;
+}
 /* disclaimer */
 .disclaimer-box {
   background: #fff3f3;

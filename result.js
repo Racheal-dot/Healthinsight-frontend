@@ -1,159 +1,111 @@
+function getBmiCategory(bmi) {
+  const value = parseFloat(bmi);
+
+  if (isNaN(value)) {
+    return { label: "Not available", className: "" };
+  }
+
+  if (value < 18.5) {
+    return { label: "Underweight", className: "bmi-underweight" };
+  }
+
+  if (value < 25) {
+    return { label: "Normal weight", className: "bmi-normal" };
+  }
+
+  if (value < 30) {
+    return { label: "Overweight", className: "bmi-overweight" };
+  }
+
+  return { label: "Obese", className: "bmi-obese" };
+}
+
+function formatTriage(level) {
+  const messages = {
+    self_care: "Your symptoms may be managed with self-care.",
+    consultation: "Schedule an appointment with a healthcare professional.",
+    consultation_24: "Consult a doctor within 24 hours.",
+    emergency: "Seek emergency medical attention immediately.",
+    emergency_ambulance: "Call emergency services immediately."
+  };
+
+  return messages[level] || "Consult a healthcare professional.";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-
   const container = document.getElementById("output");
-
   const session = JSON.parse(localStorage.getItem("session"));
 
-  console.log("SESSION:", session);
-
-  if (!session) {
-    container.innerHTML = "<h2>No session data found</h2>";
+  if (!session || !session.result) {
+    container.innerHTML = "<h2>No session data found.</h2>";
     return;
   }
 
-  // IMPORTANT
-  const result = session.result;
-
-  // DEBUG
-  console.log("RESULT:", result);
-
-  // HANDLE BOTH POSSIBLE STRUCTURES
-  const apiData = result.data ? result.data : result;
+  const diagnosis = session.result.diagnosis;
+  const triage = session.result.triage;
+  const bmiInfo = getBmiCategory(session.bmi);
 
   let html = `
-<div class="result-card">
+    <div class="result-card">
+      <h2 class="section-title">User Information</h2>
+      <p><strong>Age:</strong> ${session.age}</p>
+      <p><strong>Gender:</strong> ${session.gender}</p>
+      <p>
+        <strong>BMI:</strong> ${session.bmi || "N/A"}
+        ${
+          session.bmi
+            ? `<span class="bmi-badge ${bmiInfo.className}">${bmiInfo.label}</span>`
+            : ""
+        }
+      </p>
+    </div>
+  `;
 
-   <h2 class="section-title">User Information</h2>
-
-    <p><strong>Age:</strong> ${session.age}</p>
-
-    <p><strong>Gender:</strong> ${session.gender}</p>
-
-    <p><strong>BMI:</strong> ${session.bmi}</p>
-
-</div>
-`;
-
-  // CONDITIONS
-  if (apiData.conditions) {
-
+  if (diagnosis.conditions && diagnosis.conditions.length > 0) {
     html += `<h2 class="section-title">Possible Conditions</h2>`;
 
-    apiData.conditions.forEach(condition => {
-
+    diagnosis.conditions.slice(0, 5).forEach((condition) => {
       let risk = "Low Risk";
       let riskClass = "low-risk";
 
       if (condition.probability >= 0.7) {
         risk = "High Risk";
         riskClass = "high-risk";
-      }
-      else if (condition.probability >= 0.4) {
+      } else if (condition.probability >= 0.4) {
         risk = "Medium Risk";
         riskClass = "medium-risk";
       }
 
       html += `
-    <div class="result-card">
-
-        <h3>${condition.name}</h3>
-
-        <p>
-            Probability:
-            ${(condition.probability * 100).toFixed(1)}%
-        </p>
-
-        <p class="${riskClass}">
-            ${risk}
-        </p>
-
-    </div>
-    `;
+        <div class="result-card">
+          <h3>${condition.name}</h3>
+          <p><strong>Probability:</strong> ${(condition.probability * 100).toFixed(1)}%</p>
+          <p class="${riskClass}">${risk}</p>
+        </div>
+      `;
     });
-
   } else {
-
-    html += `<p>No conditions found</p>`;
+    html += `<p>No conditions found.</p>`;
   }
 
-
-  // QUESTION
-  if (apiData.question) {
-
+  if (triage) {
     html += `
-<div class="question-box">
-<h2>More Information Needed</h2>
-`;
-
-    apiData.question.items.forEach(item => {
-
-      html += `
-        <label>
-            <input type="radio" name="followup" value="${item.id}">
-            ${item.name}
-        </label>
-        <br><br>
-        `;
-
-    });
-
-    html += `
-    <button onclick="submitAnswer()">Next</button>
+      <div class="advice-box"> <h2 class="section-title">Recommended Action</h2>
+        <p><strong>${triage.triage_level}</strong></p>
+        <p>${formatTriage(triage.triage_level)}</p>
+      </div>
     `;
   }
-  html += `</div>`;
 
-  // just added
   html += `
-<div class="disclaimer-box">
-    <h2 class="section-title">Medical Disclaimer</h2>
-    <p>
-        This health assessment is provided for informational and educational
-        purposes only. It is not a medical diagnosis and should not replace
-        professional medical advice, diagnosis, or treatment.
-    </p>
-    <p>
-        Always consult a qualified healthcare professional regarding any health
-        concerns. If you are experiencing a medical emergency, seek immediate
-        medical attention.
-    </p>
-</div>
-`;
+    <div class="disclaimer-box">
+      <h2 class="section-title">Medical Disclaimer</h2>
+      <p>
+        This assessment is for informational purposes only and does not provide
+        a medical diagnosis. Always consult a qualified healthcare professional.
+      </p>
+    </div>
+  `;
 
   container.innerHTML = html;
-
-
-  // FOLLOW-UP
-  window.submitAnswer = async function () {
-
-    const selected = document.querySelector("input[name='followup']:checked");
-
-    if (!selected) {
-      alert("Select an option");
-      return;
-    }
-
-    session.evidence.push({
-      id: selected.value,
-      choice_id: "present"
-    });
-
-    const response = await getDiagnosis({
-      sex: session.gender,
-      age: {
-        value: parseInt(session.age)
-      },
-      evidence: session.evidence,
-      interview_token: session.interview_token
-    });
-
-    console.log("NEW RESPONSE:", response);
-
-    session.result = response;
-
-    localStorage.setItem("session", JSON.stringify(session));
-
-    location.reload();
-  };
-
 });
