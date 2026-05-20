@@ -23,83 +23,137 @@ header {
   cursor: pointer;
 }
 
+/* Pogil Header  */
+
+.site-header {
+    background: linear-gradient(135deg, #0f766e, #0ea5a4);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 1rem;
+    opacity: 0.95;
+    max-width: 700px;
+}
+
 /* Nav Styles */
 nav {
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* position: relative; */
+}
+
+.navLink li {
+    list-style: none;
 }
 
 .navLink ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 35px;
 }
 
+
+
 /* Default (unvisited) links */
-nav a:link {
-  color: #1e3a8a;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px 18px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+.navLink a:link {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 /* Visited links */
-nav a:visited {
-  color: #1e40af;
+.navLink a:visited {
+    color: #1e40af;
 }
 
 /* Hover state */
-nav a:hover {
-  background-color: #2563eb;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+.navLink a:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
 }
 
 /* Active (while clicking) */
-nav a:active {
-  background-color: #1d4ed8;
-  color: #ffffff;
-  transform: scale(0.97);
+.navLink a:active {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    transform: scale(0.97);
 }
 
 /* Optional: current page highlight */
-nav a.current {
-  background-color: #2563eb;
-  color: #ffffff;
+.navLink a.current {
+    background-color: #2563eb;
+    color: #ffffff;
 }
 
 .navLogo {
-  display: flex;
-  align-items: center;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .logo-icon {
-  font-size: 24px;
-  margin-right: 8px;
-  color: #2ecc71;
+    font-size: 30px;
+    margin: 0 8px 0 0;
+    color: #2ecc71;
 }
 
-.health {
-  color: #0f03ee;
-}
-
-.insight {
-  color: #2ecc71;
-}
 
 /* RESULT STYLES */
+
+.symptom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.symptom-tag {
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
 
 /* MAIN CONTAINER */
 .container {
@@ -151,31 +205,6 @@ nav a.current {
   font-size: 17px;
 }
 
-/* QUESTION BOX */
-.question-box {
-  background: #fff8e1;
-  border-left: 6px solid #ffc107;
-  padding: 25px;
-  border-radius: 14px;
-  margin-top: 30px;
-}
-
-/* BUTTON */
-button {
-  margin-top: 20px;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 10px;
-  background: #1e88e5;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #1565c0;
-}
 
 /* LABELS */
 label {
@@ -233,12 +262,68 @@ label {
 }
 
 .advice-box {
-  background: #ecfdf5;
+  background: #dce0de;
   border-left: 6px solid #10b981;
   padding: 25px;
   border-radius: 14px;
   margin-top: 40px;
 }
+
+/* Health advice */
+.advice-card {
+  background: #f0fdf4;
+  border-left: 5px solid #16a34a;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.advice-card h2 {
+  color: #166534;
+  margin-bottom: 15px;
+}
+
+.advice-card ul {
+  padding-left: 20px;
+}
+
+.advice-card li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+
+/* Specilaist */
+.specialist-card {
+  background: #eff6ff;
+  border-left: 5px solid #2563eb;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.specialist-card h3 {
+  color: #1d4ed8;
+  margin-bottom: 10px;
+}
+
+/* clinic */
+.clinic-card {
+  background: #ecfdf5;
+  border-left: 5px solid #10b981;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.clinic-card p {
+  line-height: 1.7;
+}
+
+
 /* disclaimer */
 .disclaimer-box {
   background: #fff3f3;
@@ -251,6 +336,50 @@ label {
 .disclaimer-box p {
   margin-bottom: 12px;
   line-height: 1.8;
+}
+
+/* ACTION BTN */
+.action-btn {
+  display: flex;
+  justify-content: space-between;
+  margin: 60px 0 0;
+}
+
+.recheck button {
+  background-color: #fff;
+  color: #0f03ee;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #0f03ee;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+  font-family: 'Poppins', sans-serif;
+}
+
+.recheck button:hover {
+  background-color: #0f03ee;
+  color: #fff;
+}
+
+.print {
+  background-color: #0f03ee;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+  font-family: 'Poppins', sans-serif;
+}
+
+.print:hover {
+  background-color: #fff;
+  color: #0f03ee;
+  border: 1px solid #0f03ee;
 }
 
 /* MOBILE */

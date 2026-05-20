@@ -28,22 +28,29 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Symptoms (FIXED)
-      let symptoms = [];
+      let symptoms = Array.from(
+        document.querySelectorAll("input[name='symptoms']")
+      )
+        .filter(el => el.checked)
+        .map(el => el.value);
 
-      document
-        .querySelectorAll("input[name='symptoms']:checked")
-        .forEach(el => {
-          if (el.value && el.value.startsWith("s_")) {
-            symptoms.push(el.value.trim());
-          }
-        });
-
-      console.log("Selected symptoms:", symptoms);
+      console.log("SYMPTOMS SELECTED:", symptoms);
 
       if (symptoms.length === 0) {
-        alert("Select at least one symptom.");
+        alert("Select at least one symptom");
         return;
       }
+
+      // symptoms input
+      const symptomInputs = document.querySelectorAll(
+        'input[name="symptoms"]:checked'
+      );
+
+      const symptomIds = Array.from(symptomInputs).map(input => input.value);
+
+      const symptomNames = Array.from(symptomInputs).map(input =>
+        input.parentElement.querySelector(".symptoms-text").textContent.trim()
+      );
 
       submitButton.disabled = true;
       submitButton.textContent = "Analyzing Health...";
@@ -70,7 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
           result,
           age,
           gender,
-          bmi
+          bmi,
+          symptoms: symptomNames
         })
       );
 

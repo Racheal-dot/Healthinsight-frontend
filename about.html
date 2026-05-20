@@ -21,15 +21,23 @@
 
 <body>
     <!-- Header -->
+    <div class="site-header">
+        <div class="header-content">
+            <img src="./Asset/POGIL logo.jpeg" alt="Pogil College of Health Technology Logo" class="school-logo">
+
+            <div class="header-text">
+                <h1>HealthInsight</h1>
+                <p class="subtitle">AI-Powered Health Assessment System for the Pogil College of Health Technology
+                    School Clinic</p>
+            </div>
+        </div>
+    </div>
     <header>
         <!-- nav -->
         <nav>
             <!-- navLogo -->
             <div class="navLogo" id="navLogo">
                 <span class="logo-icon"><i class="fa-solid fa-heart-pulse logo-icon"></i></span>
-                <span class="logo-text">
-                    <span class="health">Health</span><span class="insight">Insight</span>
-                </span>
             </div>
 
             <!-- HAMBURGER -->
@@ -44,7 +52,7 @@
             <div class="navLink" id="navLink">
                 <ul>
                     <li><a href="./index.html">Home</a></li>
-                    <li class="current"><a href="./about.html">About</a></li>
+                    <li><a class="current" href="./about.html">About</a></li>
                     <li><a href="check.html">Health Check</a></li>
                     <li><a href="result.html">Health Info</a></li>
                 </ul>
@@ -53,31 +61,133 @@
         </nav>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="about-container">
-            <h2>About HealthInsight</h2>
-            <p>
-                HealthInsight is a web-based health risk assessment platform designed to
-                help users evaluate their health status by entering personal information
-                and selecting symptoms.
-            </p>
-            <p>
-                The system calculates Body Mass Index (BMI), analyzes symptoms, and
-                provides possible health conditions along with probability and risk
-                levels.
-            </p>
-            <p>
-                This project was developed as a final year Computer Science project to
-                demonstrate the use of frontend web technologies in solving healthcare
-                challenges.
-            </p>
-        </div>
-    </section>
+
+    <div class="container about-page">
+        <h1>About HealthInsight</h1>
+
+        <p>
+            HealthInsight is an AI-powered health assessment web application developed
+            as a final year project to support preliminary health evaluation and provide
+            intelligent recommendations based on user health information.
+        </p>
+
+        <h2>Case Study Institution</h2>
+        <p>
+            This project was developed using the Pogil College of Health Technology
+            School Clinic as the case study institution.
+        </p>
+
+        <p>
+            The system is designed to support students and staff by providing
+            preliminary health assessments, personalized health advice,
+            and specialist recommendations.
+        </p>
+
+        <p>
+            It aims to improve access to health information and encourage early
+            consultation at the school clinic.
+        </p>
+
+        <h2>Project Overview</h2>
+        <p>
+            The application collects basic health data such as age, gender, weight,
+            height, blood pressure, symptoms, and lifestyle information. It then sends
+            the data to an intelligent diagnostic engine powered by Infermedica's
+            medical API.
+        </p>
+
+        <p>
+            Based on the submitted information, the system predicts possible medical
+            conditions, estimates their probability, and provides personalized health
+            advice to help users make informed decisions about their wellbeing.
+        </p>
+
+        <h2>Objectives of the Project</h2>
+        <ul>
+            <li>To develop a web-based health diagnostic system.</li>
+            <li>To integrate Artificial Intelligence into healthcare support.</li>
+            <li>To predict likely medical conditions from user symptoms.</li>
+            <li>To provide personalized health recommendations.</li>
+            <li>To improve awareness of preventive healthcare practices.</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li>User-friendly health assessment form.</li>
+            <li>Automated BMI calculation.</li>
+            <li>AI-based disease prediction using Infermedica.</li>
+            <li>Risk level classification (Low, Medium, High).</li>
+            <li>Personalized health advice.</li>
+            <li>Printable diagnostic report.</li>
+            <li>Responsive design for desktop and mobile devices.</li>
+        </ul>
+
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><strong>HTML5</strong> - Structure of web pages.</li>
+            <li><strong>CSS3</strong> - Styling and responsive design.</li>
+            <li><strong>JavaScript</strong> - Dynamic functionality and API communication.</li>
+            <li><strong>PHP</strong> - Backend processing.</li>
+            <li><strong>Infermedica API</strong> - Medical diagnosis engine.</li>
+            <li><strong>Railway</strong> - Backend hosting.</li>
+            <li><strong>Netlify</strong> - Frontend hosting.</li>
+            <li><strong>GitHub</strong> - Version control and deployment.</li>
+        </ul>
+
+        <h2>How the System Works</h2>
+        <ol>
+            <li>The user enters personal and symptom data.</li>
+            <li>The frontend validates the information.</li>
+            <li>Data is sent to the PHP backend hosted on Railway.</li>
+            <li>The backend forwards the request to Infermedica.</li>
+            <li>Infermedica returns possible diagnoses.</li>
+            <li>The application displays results and health advice.</li>
+        </ol>
+
+        <h2>Benefits of HealthInsight</h2>
+        <ul>
+            <li>Provides instant preliminary health insights.</li>
+            <li>Encourages proactive health monitoring.</li>
+            <li>Offers personalized health recommendations.</li>
+            <li>Supports educational use in healthcare informatics.</li>
+            <li>Accessible from any internet-enabled device.</li>
+        </ul>
+
+        <h2>Project Scope</h2>
+        <p>
+            HealthInsight is designed for educational and research purposes. It is not
+            intended to replace licensed medical professionals or formal clinical diagnosis.
+        </p>
+
+        <h2>Disclaimer</h2>
+        <p class="disclaimer">
+            This application is intended for educational purposes only and does not
+            replace professional medical advice, diagnosis, or treatment. Users should
+            consult qualified healthcare providers for proper medical evaluation.
+        </p>
+
+        <h2>Developer Information</h2>
+        <p>
+            <strong>Project Title:</strong> HealthInsight: AI-Powered Personalized Health
+            Recommendation System
+        </p>
+        <p><strong>Developer:</strong> Kolawole Racheal</p>
+        <p><strong>Department:</strong> Computer Science</p>
+        <p><strong>Project Type:</strong> Final Year Project</p>
+
+    </div>
+
+    <a class="action" href="/check.html"><button>Start Your Health Check <i class="bi bi-arrow-right"></i></button></a>
     <!-- Footer -->
     <footer>
-        <p>HealthInsight – A Web-Based Health Risk Assessment Platform</p>
-        <p>Final Year Project – Computer Science</p>
+        <p>
+            &copy; 2026 HealthInsight. Developed for the
+            Pogil College of Health Technology School Clinic.
+        </p>
+        <p>
+            This application is intended for educational and preliminary
+            health screening purposes only.
+        </p>
     </footer>
     <!-- SCRIPT -->
     <script src="./script.js"></script>

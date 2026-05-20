@@ -21,15 +21,22 @@
 
 <body>
     <!-- Header -->
+     <div class="site-header">
+        <div class="header-content">
+            <img src="./Asset/POGIL logo.jpeg" alt="Pogil College of Health Technology Logo" class="school-logo">
+
+            <div class="header-text">
+                <h1>HealthInsight</h1>
+                <p class="subtitle">AI-Powered Health Assessment System for the Pogil College of Health Technology School Clinic</p>
+            </div>
+        </div>
+    </div>
     <header>
         <!-- nav -->
         <nav>
             <!-- navLogo -->
             <div class="navLogo" id="navLogo">
                 <span class="logo-icon"><i class="fa-solid fa-heart-pulse logo-icon"></i></span>
-                <span class="logo-text">
-                    <span class="health">Health</span><span class="insight">Insight</span>
-                </span>
             </div>
 
             <!-- HAMBURGER -->
@@ -44,9 +51,9 @@
             <div class="navLink" id="navLink">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
-                     <li><a href="about.html">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="check.html">Health Check</a></li>
-                    <li class="current"><a href="result.html">Health Info</a></li>
+                    <li><a class="current" href="result.html">Health Info</a></li>
                 </ul>
             </div>
 
@@ -59,12 +66,25 @@
 
             <h1 class="page-title">Your Health Analysis</h1>
             <div id="output"></div>
+
+            <div class="action-btn">
+               <a class="recheck" href="/check.html"><button>Check again</button></a>
+                <button class="print" onclick="window.print()">Print Result</button>
+            </div>
         </div>
     </section>
+
+
     <!-- FOOTER -->
     <footer>
-        <p>HealthInsight – A Web-Based Health Risk Assessment Platform</p>
-        <p>Final Year Project – Computer Science</p>
+        <p>
+        &copy; 2026 HealthInsight. Developed for the
+        Pogil College of Health Technology School Clinic.
+    </p>
+    <p>
+        This application is intended for educational and preliminary
+        health screening purposes only.
+    </p>
     </footer>
 
     <!-- SCRIPT -->

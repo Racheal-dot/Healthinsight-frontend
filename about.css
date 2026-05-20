@@ -26,26 +26,70 @@ header {
 }
 
 
-/* Nav Styles */
-nav {
-    background: #fff;
+/* Pogil Header  */
+
+.site-header {
+    background: linear-gradient(135deg, #0f766e, #0ea5a4);
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
+    gap: 20px;
+}
+
+.school-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 1rem;
+    opacity: 0.95;
+    max-width: 700px;
+}
+
+/* Nav Styles */
+nav {
+    display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
-    box-shadow: 5px 5px 5px #dbdbdb;
-    position: relative;
+    align-items: center;
+    padding: 30px 50px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* position: relative; */
+}
+
+.navLink li {
+    list-style: none;
 }
 
 .navLink ul {
     display: flex;
-    gap: 20px;
-    list-style: none;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 35px;
 }
 
 
+
 /* Default (unvisited) links */
-nav a:link {
+.navLink a:link {
     color: #1e3a8a;
     text-decoration: none;
     font-weight: 600;
@@ -56,12 +100,12 @@ nav a:link {
 }
 
 /* Visited links */
-nav a:visited {
+.navLink a:visited {
     color: #1e40af;
 }
 
 /* Hover state */
-nav a:hover {
+.navLink a:hover {
     background-color: #2563eb;
     color: #ffffff;
     transform: translateY(-2px);
@@ -69,14 +113,14 @@ nav a:hover {
 }
 
 /* Active (while clicking) */
-nav a:active {
+.navLink a:active {
     background-color: #1d4ed8;
     color: #ffffff;
     transform: scale(0.97);
 }
 
 /* Optional: current page highlight */
-nav a.current {
+.navLink a.current {
     background-color: #2563eb;
     color: #ffffff;
 }
@@ -90,42 +134,78 @@ nav a.current {
 }
 
 .logo-icon {
-    font-size: 24px;
-    margin-right: 8px;
+    font-size: 30px;
+    margin: 0 8px 0 0;
     color: #2ecc71;
 }
 
-.health {
-    color: #0f03ee;
+/* About */
+.about-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    line-height: 1.8;
 }
 
-.insight {
-    color: #2ecc71;
+
+.about-page h1 {
+    color: #1e88e5;
 }
 
-/* ABOUT SECTION */
-.about-section {
-  padding: 80px 20px;
-  background: #f8fafc;
+.about-page h2 {
+    color: #1e88e5;
+    margin: 30px 0 0;
 }
 
-.about-container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+.about-page ul,
+.about-page ol {
+    padding-left: 25px;
 }
 
-.about-container h2 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  color: #1E88E5;
+.about-page li {
+    margin: 0 0 10px;
 }
 
-.about-container p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #475569;
-  margin-bottom: 16px;
+.disclaimer {
+    background: #fef3c7;
+    border-left: 5px solid #f59e0b;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.action{
+   display: flex;
+   justify-content: center;
+   text-decoration: none;
+}
+
+.action button {
+    padding: 20px 30px;
+    cursor: pointer;
+    background-color: #0ea5e9;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.5s ease-in-out;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    position: relative;
+}
+
+.action button:hover{
+    background-color: #fff;
+    color: #0ea5e9;
+    border:1px solid #0ea5e9;
+}
+
+
+.action i{
+    margin: 0 0 0 10px;
+    /* font-weight: bold; */
+    font-family: "bootstrap-icons";
 }
 
 /* FOOTER */
@@ -204,7 +284,6 @@ footer {
         width: 100%;
         height: 3px;
         background-color: #333;
-        /* Change to your preferred icon color */
         transition: all 0.3s ease-in-out;
         /* Smooth transition animation */
         transform-origin: left center;

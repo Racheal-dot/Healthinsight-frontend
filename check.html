@@ -23,15 +23,22 @@
 
 <body>
     <!-- Header -->
+    <div class="site-header">
+        <div class="header-content">
+            <img src="./Asset/POGIL logo.jpeg" alt="Pogil College of Health Technology Logo" class="school-logo">
+
+            <div class="header-text">
+                <h1>HealthInsight</h1>
+                <p class="subtitle">AI-Powered Health Assessment System for the Pogil College of Health Technology School Clinic</p>
+            </div>
+        </div>
+    </div>
     <header>
         <!-- nav -->
         <nav>
             <!-- navLogo -->
             <div class="navLogo" id="navLogo">
                 <span class="logo-icon"><i class="fa-solid fa-heart-pulse logo-icon"></i></span>
-                <span class="logo-text">
-                    <span class="health">Health</span><span class="insight">Insight</span>
-                </span>
             </div>
 
             <!-- HAMBURGER -->
@@ -47,7 +54,7 @@
                 <ul>
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li class="current"><a href="check.html">Health Check</a></li>
+                    <li><a class="current" href="check.html">Health Check</a></li>
                     <li><a href="result.html">Health Info</a></li>
                 </ul>
             </div>
@@ -96,7 +103,7 @@
 
                 <label>Height (cm)</label>
 
-                <input type="number" id="height" min="100" max="250">
+                <input type="number" id="height">
 
             </div>
 
@@ -106,7 +113,7 @@
 
                 <label>Weight (kg)</label>
 
-                <input type="number" id="weight" min="30" max="350">
+                <input type="number" id="weight">
 
             </div>
 
@@ -123,58 +130,155 @@
             <!-- SYMPTOMS -->
             <label for="">Select Symptoms</label>
             <div class="symptoms">
+                <!-- Headache -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text"> Headache</span>
                         <input type="checkbox" name="symptoms" value="s_21">
                     </label>
                 </div>
+
+                <!-- Fever -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text">Fever</span>
                         <input type="checkbox" name="symptoms" value="s_98">
                     </label>
                 </div>
+
+                <!-- Cough -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text">Cough</span>
                         <input type="checkbox" name="symptoms" value="s_13">
                     </label>
                 </div>
+
+                <!-- Chest pain -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text">Chest pain</span>
                         <input type="checkbox" name="symptoms" value="s_119">
                     </label>
                 </div>
+
+                <!-- Dizziness -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text"> Dizziness</span>
                         <input type="checkbox" name="symptoms" value="s_44">
                     </label>
                 </div>
+
+                <!-- Nausea -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text">Nausea</span>
                         <input type="checkbox" name="symptoms" value="s_8">
                     </label>
                 </div>
+
+                <!-- Shortness of breath -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text">Shortness of breath</span>
                         <input type="checkbox" name="symptoms" value="s_32">
                     </label>
                 </div>
+
+                <!-- Abdominal pain -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text"> Abdominal pain</span>
                         <input type="checkbox" name="symptoms" value="s_10">
                     </label>
                 </div>
+
+                <!-- Fatigue -->
                 <div>
                     <label class="check-container">
                         <span class="symptoms-text">Fatigue</span>
                         <input type="checkbox" name="symptoms" value="s_140">
+                    </label>
+                </div>
+
+                <!-- Frequent Urination -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Frequent Urination</span>
+                        <input type="checkbox" name="symptoms" value="s_67">
+                    </label>
+                </div>
+
+                <!-- Excessive Thirst -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Excessive Thirst</span>
+                        <input type="checkbox" name="symptoms" value="s_215">
+                    </label>
+                </div>
+
+                <!-- Joint Pain -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Joint Pain</span>
+                        <input type="checkbox" name="symptoms" value="s_115">
+                    </label>
+                </div>
+
+                <!-- Skin Rash -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Skin Rash</span>
+                        <input type="checkbox" name="symptoms" value="s_102">
+                    </label>
+                </div>
+
+                <!-- Itching -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Itching</span>
+                        <input type="checkbox" name="symptoms" value="s_95">
+                    </label>
+                </div>
+
+                <!-- Back Pain -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Back Pain</span>
+                        <input type="checkbox" name="symptoms" value="s_156">
+                    </label>
+                </div>
+
+                <!-- Blurred Vision -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Blurred Vision</span>
+                        <input type="checkbox" name="symptoms" value="s_89">
+                    </label>
+                </div>
+
+                <!-- Palpitations -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Palpitations</span>
+                        <input type="checkbox" name="symptoms" value="s_177">
+                    </label>
+                </div>
+
+                <!-- Sore Throat -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Sore Throat</span>
+                        <input type="checkbox" name="symptoms" value="s_81">
+                    </label>
+                </div>
+
+                <!-- Diarrhea -->
+                <div>
+                    <label class="check-container">
+                        <span class="symptoms-text">Diarrhea</span>
+                        <input type="checkbox" name="symptoms" value="s_29">
                     </label>
                 </div>
 
@@ -196,8 +300,14 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>HealthInsight – A Web-Based Health Risk Assessment Platform</p>
-        <p>Final Year Project – Computer Science</p>
+        <p>
+            &copy; 2026 HealthInsight. Developed for the
+            Pogil College of Health Technology School Clinic.
+        </p>
+        <p>
+            This application is intended for educational and preliminary
+            health screening purposes only.
+        </p>
     </footer>
 
     <!-- SCRIPT -->
