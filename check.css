@@ -74,7 +74,7 @@ nav {
     padding: 30px 50px;
     background: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    position: relative;
+    /* position: relative; */
 }
 
 .navLink li {
@@ -128,6 +128,8 @@ nav {
 }
 
 .navLogo {
+    display: flex;
+    align-items: center;
     font-size: 22px;
     font-weight: bold;
     cursor: pointer;
