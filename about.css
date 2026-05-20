@@ -139,6 +139,10 @@ nav {
     color: #2ecc71;
 }
 
+.hero{
+    margin: 0 30px;
+}
+
 /* About */
 .about-page {
     max-width: 900px;

@@ -127,74 +127,133 @@ function generateHealthAdvice(conditions) {
 
 // specialist
 function recommendSpecialist(conditions) {
-  if (!conditions || conditions.length === 0) {
-    return `
+    if (!conditions || conditions.length === 0) {
+        return `
             <div class="specialist-card">
                 <h2 class="section-title">Recommended Specialist</h2>
-                <p>General Practitioner (Primary Care Doctor)</p>
-                <p>A general practitioner can review your symptoms and refer you to a specialist if necessary.</p>
+                <p>
+                    <strong>General Practitioner (GP)</strong><br>
+                    Please consult a general practitioner for further evaluation.
+                </p>
             </div>
         `;
-  }
+    }
 
-  const topCondition = conditions[0].name.toLowerCase();
+    // Get the most probable condition
+    const topCondition = conditions[0].name.toLowerCase();
 
-  let specialist = "General Practitioner";
-  let description = "A general practitioner can provide an initial medical evaluation and guide further treatment.";
+    let specialist = "General Practitioner (GP)";
+    let description = "A general doctor who provides initial assessment and treatment.";
 
-  if (topCondition.includes("hypertension") || topCondition.includes("heart") || topCondition.includes("cardiac")) {
-    specialist = "Cardiologist";
-    description = "A cardiologist specializes in heart conditions and blood pressure management.";
-  }
-  else if (topCondition.includes("diabetes")) {
-    specialist = "Endocrinologist";
-    description = "An endocrinologist specializes in hormonal disorders such as diabetes.";
-  }
-  else if (topCondition.includes("asthma") || topCondition.includes("pneumonia") || topCondition.includes("bronchitis")) {
-    specialist = "Pulmonologist";
-    description = "A pulmonologist specializes in lung and respiratory disorders.";
-  }
-  else if (topCondition.includes("arthritis") || topCondition.includes("fracture") || topCondition.includes("bone") || topCondition.includes("joint")) {
-    specialist = "Orthopedic Specialist";
-    description = "An orthopedic specialist treats bone, joint, and musculoskeletal conditions.";
-  }
-  else if (topCondition.includes("kidney") || topCondition.includes("renal")) {
-    specialist = "Nephrologist";
-    description = "A nephrologist specializes in kidney-related diseases.";
-  }
-  else if (topCondition.includes("anemia") || topCondition.includes("blood")) {
-    specialist = "Hematologist";
-    description = "A hematologist specializes in blood disorders.";
-  }
-  else if (topCondition.includes("skin") || topCondition.includes("eczema") || topCondition.includes("rash")) {
-    specialist = "Dermatologist";
-    description = "A dermatologist specializes in skin conditions.";
-  }
-  else if (topCondition.includes("depression") || topCondition.includes("anxiety") || topCondition.includes("mental")) {
-    specialist = "Psychiatrist";
-    description = "A psychiatrist specializes in mental health disorders.";
-  }
-  else if (topCondition.includes("malaria") || topCondition.includes("typhoid") || topCondition.includes("infection")) {
-    specialist = "Infectious Disease Specialist";
-    description = "This specialist manages complex infectious diseases.";
-  }
-  else if (topCondition.includes("pregnancy") || topCondition.includes("menstrual") || topCondition.includes("ovarian")) {
-    specialist = "Gynecologist";
-    description = "A gynecologist specializes in women's reproductive health.";
-  }
-  else if (
-    topCondition.includes("ulcer") ||
-    topCondition.includes("gastritis")
-  ) {
-    specialist = "Gastroenterologist";
-    description =
-      "A gastroenterologist specializes in digestive system disorders.";
-  }
+    // Cardiovascular conditions
+    if (
+        topCondition.includes("hypertension") ||
+        topCondition.includes("heart") ||
+        topCondition.includes("chest pain") ||
+        topCondition.includes("angina") ||
+        topCondition.includes("arrhythmia")
+    ) {
+        specialist = "Cardiologist";
+        description = "Specializes in diseases of the heart and blood vessels.";
+    }
 
-  return `
+    // Diabetes and hormone disorders
+    else if (
+        topCondition.includes("diabetes") ||
+        topCondition.includes("thyroid") ||
+        topCondition.includes("hormone") ||
+        topCondition.includes("obesity")
+    ) {
+        specialist = "Endocrinologist";
+        description = "Specializes in diabetes, metabolism, and hormone-related disorders.";
+    }
+
+    // Respiratory conditions
+    else if (
+        topCondition.includes("asthma") ||
+        topCondition.includes("pneumonia") ||
+        topCondition.includes("bronchitis") ||
+        topCondition.includes("tuberculosis") ||
+        topCondition.includes("respiratory")
+    ) {
+        specialist = "Pulmonologist";
+        description = "Specializes in diseases affecting the lungs and breathing.";
+    }
+
+    // Skin conditions
+    else if (
+        topCondition.includes("eczema") ||
+        topCondition.includes("dermatitis") ||
+        topCondition.includes("acne") ||
+        topCondition.includes("skin") ||
+        topCondition.includes("rash")
+    ) {
+        specialist = "Dermatologist";
+        description = "Specializes in skin, hair, and nail conditions.";
+    }
+
+    // Digestive system conditions
+    else if (
+        topCondition.includes("ulcer") ||
+        topCondition.includes("gastritis") ||
+        topCondition.includes("hepatitis") ||
+        topCondition.includes("typhoid") ||
+        topCondition.includes("gastroenteritis") ||
+        topCondition.includes("abdominal")
+    ) {
+        specialist = "Gastroenterologist";
+        description = "Specializes in digestive system disorders.";
+    }
+
+    // Neurological conditions
+    else if (
+        topCondition.includes("migraine") ||
+        topCondition.includes("epilepsy") ||
+        topCondition.includes("stroke") ||
+        topCondition.includes("neuropathy") ||
+        topCondition.includes("headache")
+    ) {
+        specialist = "Neurologist";
+        description = "Specializes in disorders of the brain and nervous system.";
+    }
+
+    // Bone and joint conditions
+    else if (
+        topCondition.includes("arthritis") ||
+        topCondition.includes("fracture") ||
+        topCondition.includes("osteoporosis") ||
+        topCondition.includes("joint") ||
+        topCondition.includes("back pain")
+    ) {
+        specialist = "Orthopedic Specialist";
+        description = "Specializes in bones, joints, muscles, and ligaments.";
+    }
+
+    // Blood disorders
+    else if (
+        topCondition.includes("anemia") ||
+        topCondition.includes("blood disorder")
+    ) {
+        specialist = "Hematologist";
+        description = "Specializes in blood-related disorders.";
+    }
+
+    // Infections
+    else if (
+        topCondition.includes("malaria") ||
+        topCondition.includes("covid") ||
+        topCondition.includes("infection") ||
+        topCondition.includes("viral") ||
+        topCondition.includes("bacterial")
+    ) {
+        specialist = "Infectious Disease Specialist";
+        description = "Specializes in diagnosing and treating infections.";
+    }
+
+    return `
         <div class="specialist-card">
             <h2 class="section-title">Recommended Specialist</h2>
-            <h3>${specialist}</h3>
+            <p><strong>${specialist}</strong></p>
             <p>${description}</p>
         </div>
     `;
